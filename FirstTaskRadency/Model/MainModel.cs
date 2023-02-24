@@ -19,7 +19,7 @@ namespace FirstTaskRadency.Model
     {
         internal static void SaveFileInNewFormat(FileSystemEventArgs FileSystem)
         {
-            Logger.ParsedFile();
+           
 
             string fullPath = FileSystem.FullPath;
 
@@ -38,6 +38,8 @@ namespace FirstTaskRadency.Model
                 foreach (var handler in ReadersFiles)
                     if (handler.IsFileFormatValid(fullPath))
                     {
+                        Logger.ParsedFile();
+
                         IEnumerable<ITaransactionInformation> Information = handler.GetTaransatcionInformation(fullPath);
 
                         if (Information.Count() == 0)
